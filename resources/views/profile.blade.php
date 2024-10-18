@@ -12,40 +12,48 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: #f0f4f8;
+            /* Background gradasi */
+            background: linear-gradient(135deg, #4a90e2, #9013fe);
         }
+
         .card {
             background-color: #fff;
             border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            width: 300px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            width: 350px;
             text-align: center;
         }
+
         .profile-pic {
-            width: 100px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             background-color: #e9ecef;
             margin: 0 auto;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 50px;
+            font-size: 60px;
             color: #6c757d;
         }
+
         .info {
             margin-top: 20px;
         }
+
         .info div {
-            background-color: #e9ecef;
-            margin: 10px 0;
-            padding: 10px;
-            border-radius: 8px;
-            font-size: 16px;
+            background-color: #f1f3f5;
+            margin: 12px 0;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 18px;
+            color: #333;
         }
+
         .info div span {
             font-weight: bold;
+            color: #555;
         }
     </style>
 </head>
@@ -53,13 +61,12 @@
 
     <div class="card">
         <div class="profile-pic">
-            <!-- Menggunakan Unicode karakter ikon orang -->
             &#128100;
         </div>
         <div class="info">
-            <div><span>Nama: </span><?= $nama ?></div>
-            <div><span>Kelas: </span><?= $kelas ?></div>
-            <div><span>NPM: </span><?= $npm ?></div>
+            <div><span>Nama:</span> {{ $nama }}</div>
+            <div><span>Kelas:</span> {{ $kelas }}</div>
+            <div><span>NPM:</span> {{ $npm }}</div>
         </div>
     </div>
 
