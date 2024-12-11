@@ -4,18 +4,17 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateKelasTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
      */
     public function up(): void
     {
-        // Membuat tabel 'kelas'
         Schema::create('kelas', function (Blueprint $table) {
-            $table->id(); // Primary key
-            $table->string('nama_kelas'); // Nama kelas (varchar)
-            $table->timestamps(); // Kolom created_at dan updated_at
+            $table->id();
+            $table->string('nama_kelas');
+            $table->timestamps();
         });
     }
 
@@ -24,7 +23,6 @@ class CreateKelasTable extends Migration
      */
     public function down(): void
     {
-        // Menghapus tabel 'kelas'
         Schema::dropIfExists('kelas');
     }
-}
+};
