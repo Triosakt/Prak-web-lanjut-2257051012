@@ -1,8 +1,43 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers; 
 
+use App\Http\Requests\UserRequest;
 use App\Models\Kelas;
+read-data
+use App\Models\UserModel;
+
+class UserController extends Controller
+{
+
+    public $userModel; 
+    public $kelasModel;
+    public function __construct(){
+        $this->userModel = new UserModel(); 
+        $this->kelasModel = new Kelas(); 
+    }
+
+    public function index() 
+    { 
+        $users = $this->userModel->getUser();
+        
+        $data = [ 
+            'title' => 'Create User', 
+            'users' => $this->userModel->getUser(), 
+        ]; 
+    
+        return view('list_user', $data); 
+    } 
+
+    public function profile($nama = "", $kelas = "", $npm =
+    "")
+    {
+        $data = [
+            'nama' => $nama,
+            'kelas' => $kelas,
+            'npm' => $npm,
+        ];
+
 use App\Models\Lab;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -64,20 +99,37 @@ class UserController extends Controller
             'lab_id' => $validatedData['lab_id'],
             'foto' => $fotoPath,
         ]);
+master
 
-        return redirect()->route('users.index')
-            ->with('success', 'User berhasil ditambahkan');
+        return view('profile', $data);
     }
+
+ read-data
+    public function create()
 
     public function profile($nama = "", $kelas = "", $npm = "")
+ master
     {
-        return view('profile', [
-            'title' => 'Profile',
-            'nama' => $nama,
+        // $kelasModel = new Kelas();
+        $kelas = $this->kelasModel->getKelas();
+        $data = [
+            'title' => 'Create User',
             'kelas' => $kelas,
-            'npm' => $npm,
-        ]);
+        ];
+
+        return view('create_user', $data);
     }
+
+ read-data
+    public function store(UserRequest $request)
+    {
+        $this->userModel->create([ 
+            'nama' => $request->input('nama'), 
+            'npm' => $request->input('npm'), 
+            'kelas_id' => $request->input('kelas_id'), 
+            ]); 
+        
+            return redirect()->to('/user'); 
 
     public function show($id)
     {
@@ -88,5 +140,6 @@ class UserController extends Controller
             'title' => 'Profile',
             'user' => $user,
         ]);
+master
     }
 }
