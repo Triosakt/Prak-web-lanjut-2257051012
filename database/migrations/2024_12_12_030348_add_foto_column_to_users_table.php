@@ -11,10 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('kelas', function (Blueprint $table) {
-            $table->id();
-            $table->string('nama_kelas');
-            $table->timestamps();
+        Schema::table('user', function (Blueprint $table) {
+            $table->string('foto')->nullable(); // Menambahkan kolom 'foto' yang bersifat opsional
         });
     }
 
@@ -23,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('kelas');
+        Schema::table('user', function (Blueprint $table) {
+            $table->dropColumn('foto'); // Menghapus kolom 'foto' jika rollback
+        });
     }
 };
