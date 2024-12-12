@@ -9,10 +9,10 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
-    {
-        Schema::create('users', function (Blueprint $table) {
+    public function up() {
+        Schema::create('user', function (Blueprint $table) {
             $table->id();
+upload-file
             $table->string('nama'); // Ganti 'name' menjadi 'nama'
             $table->string('npm')->unique(); // Kolom npm (unik untuk setiap user)
             $table->unsignedBigInteger('kelas_id')->nullable(); // Foreign key untuk kelas (opsional)
@@ -23,6 +23,11 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
+
+            $table->string('nama');
+            $table->string('npm');
+            $table->foreignId('kelas_id')->constrained();
+ master
             $table->timestamps();
 
             // Tambahkan foreign key untuk kelas_id

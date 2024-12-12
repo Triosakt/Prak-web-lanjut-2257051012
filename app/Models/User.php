@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -21,9 +20,10 @@ class User extends Authenticatable
         'nama',
         'npm',
         'kelas_id',
+        'lab_id',
         'foto',
         'jurusan',
-        'semester'
+        'semester',
     ];
 
     /**
@@ -36,11 +36,26 @@ class User extends Authenticatable
     ];
 
     /**
+ upload-file
      * Relationship with Kelas model
      * Assumes the foreign key is 'kelas_id' in the 'users' table.
+
+     * Relasi ke Kelas.
+ master
      */
     public function kelas()
     {
         return $this->belongsTo(Kelas::class);
     }
+ upload-file
+
+
+    /**
+     * Relasi ke Lab.
+     */
+    public function lab()
+    {
+        return $this->belongsTo(Lab::class);
+    }
+ master
 }
