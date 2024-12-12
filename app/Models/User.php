@@ -34,4 +34,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Relationship with Kelas model
+     * Assumes the foreign key is 'kelas_id' in the 'users' table.
+     */
+    public function kelas()
+    {
+        return $this->belongsTo(Kelas::class);
+    }
 }
