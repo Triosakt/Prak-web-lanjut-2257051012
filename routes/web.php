@@ -35,3 +35,4 @@ Route::put('/user/{id}', [UserController::class, 'update'])->name('users.update'
 Route::delete('/user/{id}', [UserController::class, 'destroy'])->name('users.destroy');
 
 Route::get('/', [UserController::class, 'index'])->name('user.list');
+Route::get('/user/create', [UserController::class, 'create'])->name('users.create');

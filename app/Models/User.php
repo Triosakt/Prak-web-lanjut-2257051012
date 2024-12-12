@@ -36,12 +36,19 @@ class User extends Authenticatable
     ];
 
     /**
+ upload-file
+     * Relationship with Kelas model
+     * Assumes the foreign key is 'kelas_id' in the 'users' table.
+
      * Relasi ke Kelas.
+ master
      */
     public function kelas()
     {
         return $this->belongsTo(Kelas::class);
     }
+ upload-file
+
 
     /**
      * Relasi ke Lab.
@@ -50,4 +57,5 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Lab::class);
     }
+ master
 }

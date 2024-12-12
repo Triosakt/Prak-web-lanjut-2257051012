@@ -8,9 +8,9 @@
             <i class="material-icons text-3xl text-white">group</i>
             <h2 class="text-3xl font-extrabold text-white">All Users</h2> <!-- Bolder text with White color -->
         </div>
-        <a href="{{ url('/user/create') }}" class="bg-pink-500 hover:bg-pink-600 text-white px-6 py-3 rounded-full flex items-center space-x-2 transition duration-200">
+        <a href="{{ route('users.create') }}" class="bg-pink-500 hover:bg-pink-600 text-white px-6 py-3 rounded-full flex items-center space-x-2 transition duration-200">
             <i class="material-icons">add</i>
-            <span>Add New User</span>
+            <span>Tambah Pengguna Baru</span>
         </a>
     </div>
 
@@ -62,8 +62,6 @@
                         <i class="material-icons">visibility</i>
                         <span>View Profile</span>
                     </a>
-                   
-                    
                 </div>
             </div>
         </div>
